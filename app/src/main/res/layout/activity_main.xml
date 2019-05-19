@@ -10,11 +10,10 @@
     android:paddingTop="16dp"
     tools:context="com.omkaracharya.edgecomputingwithneuralnetworks.MainActivity">
 
-    <com.wonderkiln.camerakit.CameraView
-        android:id="@+id/cameraView"
+    <ImageView android:id="@+id/selectedImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_gravity="center|top" />
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +36,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnToggleCamera"
+        android:id="@+id/selectImage"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_gravity="bottom|center"
