@@ -24,7 +24,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewResult"
+            android:id="@+id/resultsTextView"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:fadeScrollbars="false"
@@ -46,7 +46,7 @@
         android:textColor="@android:color/black" />
 
     <Button
-        android:id="@+id/btnDetectObject"
+        android:id="@+id/recognizeImage"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_gravity="bottom|center"
