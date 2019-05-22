@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EdgeComputingwithNeuralNetworks</string>
+    <string name="app_name">ECNN_V2</string>
     <string name="select_image">Select Image</string>
-    <string name="detect_object">Recognize Image Object</string>
+    <string name="detect_object">Start Image Recognition</string>
 </resources>
