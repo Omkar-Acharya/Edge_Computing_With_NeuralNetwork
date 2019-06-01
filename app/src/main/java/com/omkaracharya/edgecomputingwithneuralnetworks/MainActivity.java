@@ -1,5 +1,6 @@
 package com.omkaracharya.edgecomputingwithneuralnetworks;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView image;
     Bitmap imgBitMap;
-    TextView resultsTextView;
+    TextView resultsTextView, latencyTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Button detectImage = (Button) findViewById(R.id.recognizeImage);
         resultsTextView = findViewById(R.id.resultsTextView);
         resultsTextView.setMovementMethod(new ScrollingMovementMethod());
+        latencyTextView = findViewById(R.id.latencyTextView);
 
         //Call to init() to load the classifier class
         init();
@@ -79,13 +82,19 @@ public class MainActivity extends AppCompatActivity {
                             //Drawable[] drawables = new Drawable[images.length];
                             //System.out.print("Total images in assets: "+images.length);
                             Log.d("Total images in Assets", " " + images.length);
-//                            InputStream inputStream = getAssets().open("images/"+images[9]);
+//                            InputStream inputStream = getAssets().open("images/1dfbeffd999f280e.png");
 //                            imgBitMap = BitmapFactory.decodeStream(inputStream);
-//                            image.setImageBitmap(imgBitMap);
-//                            List<Classifier.Recognition> results = classifier.recognizeImage(imgBitMap);
-//                            resultsTextView.setText(results.toString());
-
-                            for (int i = 0; i < images.length; i++) {
+//                            final List<Classifier.Recognition> results = classifier.recognizeImage(imgBitMap);
+//                            runOnUiThread(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        image.setImageBitmap(imgBitMap);
+//                                        resultsTextView.setText(results.toString());
+//                                    }
+//                                });
+                            final double startTime = System.currentTimeMillis();
+                            for (int i = 0; i < 90; i++) {
+                                //Log.d("Img name & i", " " + images[i] + " " + i);
                                 InputStream inputStream = getAssets().open("images/" + images[i]);
                                 imgBitMap = BitmapFactory.decodeStream(inputStream);
                                 final List<Classifier.Recognition> results = classifier.recognizeImage(imgBitMap);
@@ -98,6 +107,25 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                             }
+                            final double stopTime = System.currentTimeMillis();
+                            final double totalTime = (stopTime - startTime) / 1000;
+
+                            runOnUiThread(new Runnable() {
+
+                                @Override
+                                public void run() {
+//                                    Context context = getApplicationContext();
+//                                    CharSequence text = "Total Time to recognize objects is: "+Long.toString(totalTime)+" sec";
+//                                    int duration = Toast.LENGTH_LONG;
+//
+//                                    Toast toast = Toast.makeText(context, text, duration);
+//                                    toast.show();
+
+                                    latencyTextView.setText("Total Time to recognize objects is: "+Double.toString(totalTime)+" sec");
+
+                                }
+                            });
+                            Log.d("Total Time", " " + totalTime);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

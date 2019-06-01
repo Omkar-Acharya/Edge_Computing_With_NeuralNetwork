@@ -10,10 +10,10 @@
     android:paddingTop="16dp"
     tools:context="com.omkaracharya.edgecomputingwithneuralnetworks.MainActivity">
 
-    <ImageView android:id="@+id/selectedImage"
+    <ImageView
+        android:id="@+id/selectedImage"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        />
+        android:layout_height="300dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,15 +35,15 @@
 
     </LinearLayout>
 
-    <!--Button
-        android:id="@+id/selectImage"
+    <TextView
+        android:id="@+id/latencyTextView"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom|center"
+        android:gravity="center"
         android:layout_marginBottom="50dp"
-        android:text="@string/select_image"
         android:textAllCaps="false"
-        android:textColor="@android:color/black" /-->
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/recognizeImage"
