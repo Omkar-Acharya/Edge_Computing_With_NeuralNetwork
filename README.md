@@ -23,7 +23,7 @@ Step 1. Clone the TensorFlow examples source code
 
 Clone the TensorFlow examples GitHub repository to your computer to get the demo application.
 
-git clone <Repository_URL>
+git clone https://github.com/Omkar-Acharya/Edge_Computing_With_NeuralNetwork.git
 
 Open the TensorFlow source code in Android Studio. To do this, open Android Studio and select Open an existing project, setting the folder to examples/lite/examples/image_classification/android
 
@@ -42,10 +42,3 @@ Step 4. Running the Application:
 
 When you start the app, you will see the following apps Homescreen and upon clicking the "Start Image Recognition" button, it will start
 taking the images from the assets folder and give it as input to the model and will give the results.
-
- 
-
- 
-
-
- 
